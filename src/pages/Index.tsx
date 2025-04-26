@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Button } from "@/components/ui/button";
+import { Mail, PhoneCall } from "lucide-react";
 import Navigation from '@/components/Navigation';
 import { Card } from "@/components/ui/card";
 import { Calendar } from "@/components/ui/calendar";
@@ -64,21 +65,30 @@ const Index = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-12 md:py-16 px-4 bg-white">
+      <section 
+        id="contact" 
+        className="py-12 md:py-16 px-4 bg-white transition-all duration-500 ease-in-out"
+      >
         <div className="container mx-auto text-center">
           <h2 className="text-2xl md:text-4xl font-playfair font-bold mb-6 md:mb-8">
             联系我们
           </h2>
           <div className="max-w-lg mx-auto space-y-4">
-            <p className="text-gray-600">
-              <span className="font-semibold">邮箱：</span>
-              <a href="mailto:zzt319@outlook.com" className="text-pink-600 hover:text-pink-700">
+            <p className="text-gray-600 flex items-center justify-center gap-2">
+              <Mail className="text-pink-600 w-5 h-5" />
+              <a 
+                href="mailto:zzt319@outlook.com" 
+                className="text-pink-600 hover:text-pink-700 hover:underline transition-colors"
+              >
                 zzt319@outlook.com
               </a>
             </p>
-            <p className="text-gray-600">
-              <span className="font-semibold">电话：</span>
-              <a href="tel:+393335498220" className="text-pink-600 hover:text-pink-700">
+            <p className="text-gray-600 flex items-center justify-center gap-2">
+              <PhoneCall className="text-pink-600 w-5 h-5" />
+              <a 
+                href="tel:+393335498220" 
+                className="text-pink-600 hover:text-pink-700 hover:underline transition-colors"
+              >
                 +39 333 549 8220
               </a>
             </p>

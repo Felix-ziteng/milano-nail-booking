@@ -7,7 +7,18 @@ import { useIsMobile } from '@/hooks/use-mobile';
 const Navigation = () => {
   const isMobile = useIsMobile();
   const scrollToContact = () => {
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+      
+      // Add highlight effect
+      contactSection.classList.add('highlight-contact');
+      
+      // Remove highlight after 3 seconds
+      setTimeout(() => {
+        contactSection.classList.remove('highlight-contact');
+      }, 3000);
+    }
   };
 
   return (
