@@ -1,8 +1,11 @@
 
 import React from 'react';
 import { Button } from "@/components/ui/button";
+import { Menu } from "lucide-react";
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const Navigation = () => {
+  const isMobile = useIsMobile();
   const scrollToContact = () => {
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -10,13 +13,20 @@ const Navigation = () => {
   return (
     <nav className="fixed w-full bg-white/80 backdrop-blur-md z-50 shadow-sm">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <h1 className="text-2xl font-playfair font-bold text-pink-600">Lidia</h1>
-        <Button 
-          onClick={scrollToContact}
-          className="bg-pink-600 hover:bg-pink-700 text-white"
-        >
-          联系我们
-        </Button>
+        <h1 className="text-xl md:text-2xl font-playfair font-bold text-pink-600">Lidia</h1>
+        <div className="flex items-center gap-4">
+          <Button 
+            onClick={scrollToContact}
+            className="bg-pink-600 hover:bg-pink-700 text-white text-sm md:text-base px-3 md:px-4 py-1 md:py-2"
+          >
+            联系我们
+          </Button>
+          {isMobile && (
+            <Button variant="ghost" size="icon">
+              <Menu className="h-5 w-5" />
+            </Button>
+          )}
+        </div>
       </div>
     </nav>
   );
